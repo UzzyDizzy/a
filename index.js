@@ -1,13 +1,11 @@
 const express = require('express');
 const app = express();
-const PORT = 4000;
 
-app.get('/home', (req, res) => {
-  res.status(200).json('Welcome, your app is working well');
+app.get('/', (req, res) => {
+    res.send({ hi: 'there' });
 });
 
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+    console.log(`Server is running on port ${PORT}`);
 });
-
-module.exports = app;
